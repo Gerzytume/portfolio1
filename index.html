@@ -18,7 +18,7 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial, Helvetica, sans-serif;
+font-family:Arial;
 scroll-behavior:smooth;
 }
 
@@ -55,21 +55,18 @@ nav a:hover{
 color:#00ADB5;
 }
 
-/* HERO */
+/* HERO (RESTORED ORIGINAL STYLE) */
 
 .hero{
 
 height:100vh;
 
-background-color:#000;
-
-background-image:
+background:
 linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),
-url("./gerzy.jpg");
+url("gerzy.jpg");
 
 background-size:cover;
 background-position:center;
-background-repeat:no-repeat;
 
 display:flex;
 flex-direction:column;
@@ -83,12 +80,12 @@ padding-top:80px;
 
 }
 
-/* PROFILE IMAGE */
+/* PROFILE PHOTO (ONLY SIZE ADJUSTED) */
 
 .profile-photo{
 
-width:200px;
-height:200px;
+width:160px;
+height:160px;
 
 border-radius:50%;
 border:5px solid white;
@@ -98,8 +95,6 @@ object-fit:cover;
 margin-bottom:20px;
 
 box-shadow:0 5px 20px rgba(0,0,0,0.4);
-
-display:block;
 
 }
 
@@ -250,7 +245,7 @@ text-align:center;
 
 <div class="hero">
 
-<img src="./profile.jpg" class="profile-photo" alt="Fomonyuy Tume">
+<img src="profile.jpg" class="profile-photo">
 
 <h1>Fomonyuy Tume</h1>
 
@@ -274,7 +269,7 @@ text-align:center;
 
 <div class="project-card">
 
-<img src="project1.jpg" alt="Sales Dashboard">
+<img src="project1.jpg">
 
 <div class="project-content">
 
@@ -282,9 +277,9 @@ text-align:center;
 
 <p>Power BI dashboard analyzing revenue trends.</p>
 
-<a href="case-sales.html" class="btn">Case Study</a>
+<a href="#" class="btn">Case Study</a>
 
-<a href="https://github.com/" class="btn">GitHub</a>
+<a href="https://github.com/gerzytume" class="btn">GitHub</a>
 
 </div>
 
@@ -292,7 +287,7 @@ text-align:center;
 
 <div class="project-card">
 
-<img src="project2.jpg" alt="Customer Churn">
+<img src="project2.jpg">
 
 <div class="project-content">
 
@@ -300,9 +295,9 @@ text-align:center;
 
 <p>Machine learning model predicting customer churn.</p>
 
-<a href="case-churn.html" class="btn">Case Study</a>
+<a href="#" class="btn">Case Study</a>
 
-<a href="https://github.com/" class="btn">GitHub</a>
+<a href="https://github.com/gerzytume" class="btn">GitHub</a>
 
 </div>
 
@@ -310,7 +305,7 @@ text-align:center;
 
 <div class="project-card">
 
-<img src="project3.jpg" alt="Marketing Analysis">
+<img src="project3.jpg">
 
 <div class="project-content">
 
@@ -318,9 +313,9 @@ text-align:center;
 
 <p>Campaign ROI and conversion analysis.</p>
 
-<a href="case-marketing.html" class="btn">Case Study</a>
+<a href="#" class="btn">Case Study</a>
 
-<a href="https://github.com/" class="btn">GitHub</a>
+<a href="https://github.com/gerzytume" class="btn">GitHub</a>
 
 </div>
 
@@ -338,7 +333,7 @@ text-align:center;
 
 <div class="dashboard-container">
 
-<iframe src="YOUR_POWER_BI_EMBED_LINK"></iframe>
+<iframe src=""></iframe>
 
 </div>
 
@@ -363,18 +358,26 @@ text-align:center;
 const ctx=document.getElementById('salesChart');
 
 new Chart(ctx,{
+
 type:'bar',
+
 data:{
 labels:['Jan','Feb','Mar','Apr','May','Jun'],
 datasets:[{
+
 label:'Revenue',
+
 data:[12000,19000,15000,22000,18000,25000],
+
 backgroundColor:'#00ADB5'
+
 }]
 },
+
 options:{
 responsive:true
 }
+
 });
 
 </script>
