@@ -18,7 +18,7 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial;
+font-family:Arial, Helvetica, sans-serif;
 scroll-behavior:smooth;
 }
 
@@ -61,12 +61,15 @@ color:#00ADB5;
 
 height:100vh;
 
-background:
+background-color:#000;
+
+background-image:
 linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),
-url("gerzy.jpg");
+url("./gerzy.jpg");
 
 background-size:cover;
 background-position:center;
+background-repeat:no-repeat;
 
 display:flex;
 flex-direction:column;
@@ -79,6 +82,8 @@ color:white;
 padding-top:80px;
 
 }
+
+/* PROFILE IMAGE */
 
 .profile-photo{
 
@@ -94,7 +99,11 @@ margin-bottom:20px;
 
 box-shadow:0 5px 20px rgba(0,0,0,0.4);
 
+display:block;
+
 }
+
+/* HERO TEXT */
 
 .hero h1{
 font-size:48px;
@@ -241,7 +250,7 @@ text-align:center;
 
 <div class="hero">
 
-<img src="profile.jpg" class="profile-photo">
+<img src="./profile.jpg" class="profile-photo" alt="Fomonyuy Tume">
 
 <h1>Fomonyuy Tume</h1>
 
@@ -265,7 +274,7 @@ text-align:center;
 
 <div class="project-card">
 
-<img src="project1.jpg">
+<img src="project1.jpg" alt="Sales Dashboard">
 
 <div class="project-content">
 
@@ -283,7 +292,7 @@ text-align:center;
 
 <div class="project-card">
 
-<img src="project2.jpg">
+<img src="project2.jpg" alt="Customer Churn">
 
 <div class="project-content">
 
@@ -301,7 +310,7 @@ text-align:center;
 
 <div class="project-card">
 
-<img src="project3.jpg">
+<img src="project3.jpg" alt="Marketing Analysis">
 
 <div class="project-content">
 
@@ -354,26 +363,18 @@ text-align:center;
 const ctx=document.getElementById('salesChart');
 
 new Chart(ctx,{
-
 type:'bar',
-
 data:{
 labels:['Jan','Feb','Mar','Apr','May','Jun'],
 datasets:[{
-
 label:'Revenue',
-
 data:[12000,19000,15000,22000,18000,25000],
-
 backgroundColor:'#00ADB5'
-
 }]
 },
-
 options:{
 responsive:true
 }
-
 });
 
 </script>
