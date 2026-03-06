@@ -6,20 +6,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Fomonyuy Gerard Tume | Remote Data Analyst & Full‑Stack Developer Portfolio</title>
+<title>Fomonyuy Tume | Data Analyst Portfolio</title>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <style>
+
+/* GENERAL */
 
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial, Helvetica, sans-serif;
+font-family:Arial;
 scroll-behavior:smooth;
 }
 
 body{
-line-height:1.6;
+background:#f4f4f4;
 }
 
 /* NAVBAR */
@@ -29,14 +33,14 @@ position:fixed;
 top:0;
 width:100%;
 background:#111;
-padding:15px 10%;
+padding:15px 8%;
 display:flex;
 justify-content:space-between;
 align-items:center;
 z-index:1000;
 }
 
-nav h3{
+nav h2{
 color:white;
 }
 
@@ -54,10 +58,11 @@ color:#00ADB5;
 /* HERO */
 
 .hero{
+
 height:100vh;
 
 background:
-linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),
+linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),
 url("gerzy.jpg");
 
 background-size:cover;
@@ -70,15 +75,25 @@ align-items:center;
 
 text-align:center;
 color:white;
-padding:20px;
+
+padding-top:80px;
+
 }
 
 .profile-photo{
-width:180px;
-height:180px;
+
+width:200px;
+height:200px;
+
 border-radius:50%;
 border:5px solid white;
+
+object-fit:cover;
+
 margin-bottom:20px;
+
+box-shadow:0 5px 20px rgba(0,0,0,0.4);
+
 }
 
 .hero h1{
@@ -86,11 +101,12 @@ font-size:48px;
 margin-bottom:10px;
 }
 
-.hero h2{
-font-weight:normal;
-margin-bottom:20px;
+.hero p{
 color:#ddd;
+margin-bottom:20px;
 }
+
+/* BUTTONS */
 
 .btn{
 display:inline-block;
@@ -98,83 +114,89 @@ padding:12px 25px;
 background:#00ADB5;
 color:white;
 text-decoration:none;
-border-radius:5px;
-margin:10px;
+border-radius:6px;
+margin:8px;
 font-weight:bold;
+transition:0.3s;
 }
 
 .btn:hover{
 background:#028f96;
+transform:translateY(-3px);
 }
 
-/* GENERAL SECTIONS */
+/* SECTIONS */
 
 section{
-padding:80px 10%;
+padding:90px 8%;
 text-align:center;
 }
 
 section h2{
-font-size:32px;
-margin-bottom:30px;
+font-size:34px;
+margin-bottom:40px;
 }
 
-/* SKILLS */
-
-.skills{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:20px;
-}
-
-.skill-box{
-background:#f4f4f4;
-padding:20px;
-border-radius:8px;
-font-weight:bold;
-}
-
-/* PROJECTS */
+/* PROJECT CARDS */
 
 .projects{
+
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 gap:25px;
+
 }
 
 .project-card{
+
 background:white;
-padding:25px;
 border-radius:8px;
+overflow:hidden;
+
 box-shadow:0 4px 10px rgba(0,0,0,0.1);
+
+transition:transform 0.3s, box-shadow 0.3s;
+
 }
 
-.project-card h3{
-margin-bottom:10px;
+.project-card:hover{
+
+transform:translateY(-10px);
+box-shadow:0 10px 20px rgba(0,0,0,0.2);
+
 }
 
-.project-card p{
-margin-bottom:15px;
+.project-card img{
+
+width:100%;
+height:170px;
+object-fit:cover;
+
 }
 
-.project-card a{
-text-decoration:none;
-color:#00ADB5;
-font-weight:bold;
+.project-content{
+padding:20px;
 }
 
 /* DASHBOARDS */
 
-.dashboards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
+.dashboard-container{
+max-width:1000px;
+margin:auto;
 }
 
-.dashboard-card{
-background:#f4f4f4;
-padding:20px;
+iframe{
+width:100%;
+height:500px;
+border:none;
 border-radius:8px;
+}
+
+/* CHART */
+
+.chart-box{
+max-width:600px;
+margin:auto;
 }
 
 /* CONTACT */
@@ -187,8 +209,8 @@ color:white;
 footer{
 background:black;
 color:white;
-text-align:center;
 padding:20px;
+text-align:center;
 }
 
 </style>
@@ -201,15 +223,14 @@ padding:20px;
 
 <nav>
 
-<h3>Gerzy</h3>
+<h2>Tume</h2>
 
 <div>
 
 <a href="#">Home</a>
-<a href="#about">About</a>
-<a href="#skills">Skills</a>
 <a href="#projects">Projects</a>
-<a href="#dashboards">Dashboards</a>
+<a href="#dashboard">Dashboards</a>
+<a href="#analytics">Analytics</a>
 <a href="#contact">Contact</a>
 
 </div>
@@ -220,160 +241,142 @@ padding:20px;
 
 <div class="hero">
 
-<img src="profile.jpg" class="profile-photo" alt="Fomonyuy Tume">
+<img src="profile.jpg" class="profile-photo">
 
 <h1>Fomonyuy Tume</h1>
 
-<h2>Data Analyst | BI Analyst | Full Stack Developer</h2>
+<p>Data Analyst | BI Analyst | Full Stack Developer</p>
 
 <a href="Fomonyuy_Tume_Data_Analyst_CV.pdf" class="btn">Download CV</a>
 
 <a href="https://github.com/gerzytume" class="btn">GitHub</a>
 
-<a href="https://linkedin.com/" class="btn">LinkedIn</a>
+<a href="https://linkedin.com" class="btn">LinkedIn</a>
 
 </div>
-
-<!-- ABOUT -->
-
-<section id="about">
-
-<h2>About Me</h2>
-
-<p>
-
-Data Analyst and Software Engineering graduate with strong expertise in 
-data analytics, business intelligence, and full-stack web development. 
-Experienced in transforming raw data into actionable insights using 
-Python, SQL, and Power BI. Passionate about solving real-world problems 
-through data-driven decision making and modern cloud-based technologies.
-
-</p>
-
-</section>
-
-<!-- SKILLS -->
-
-<section id="skills">
-
-<h2>Technical Skills</h2>
-
-<div class="skills">
-
-<div class="skill-box">Python (Pandas, NumPy)</div>
-
-<div class="skill-box">SQL & Data Analysis</div>
-
-<div class="skill-box">Power BI Dashboards</div>
-
-<div class="skill-box">Data Visualization</div>
-
-<div class="skill-box">Machine Learning</div>
-
-<div class="skill-box">JavaScript / React</div>
-
-<div class="skill-box">Node.js Development</div>
-
-<div class="skill-box">Cloud Applications</div>
-
-</div>
-
-</section>
 
 <!-- PROJECTS -->
 
 <section id="projects">
 
-<h2>Projects</h2>
+<h2>Featured Data Projects</h2>
 
 <div class="projects">
 
 <div class="project-card">
 
+<img src="project1.jpg">
+
+<div class="project-content">
+
 <h3>Sales Analytics Dashboard</h3>
 
-<p>
+<p>Power BI dashboard analyzing revenue trends.</p>
 
-Power BI dashboard analyzing business revenue trends,
-regional performance, and KPI metrics.
+<a href="case-sales.html" class="btn">Case Study</a>
 
-</p>
-
-<a href="https://github.com/">View Project</a>
+<a href="https://github.com/" class="btn">GitHub</a>
 
 </div>
 
+</div>
 
 <div class="project-card">
+
+<img src="project2.jpg">
+
+<div class="project-content">
 
 <h3>Customer Churn Prediction</h3>
 
-<p>
+<p>Machine learning model predicting customer churn.</p>
 
-Machine learning model predicting customer churn using
-Python, Pandas, and Scikit-Learn.
+<a href="case-churn.html" class="btn">Case Study</a>
 
-</p>
-
-<a href="https://github.com/">View Project</a>
+<a href="https://github.com/" class="btn">GitHub</a>
 
 </div>
 
+</div>
 
 <div class="project-card">
 
-<h3>Business Intelligence Dashboard</h3>
+<img src="project3.jpg">
 
-<p>
+<div class="project-content">
 
-Interactive dashboard providing operational insights
-for business decision making.
+<h3>Marketing Campaign Analysis</h3>
 
-</p>
+<p>Campaign ROI and conversion analysis.</p>
 
-<a href="https://github.com/">View Project</a>
+<a href="case-marketing.html" class="btn">Case Study</a>
 
-</div>
-
-</div>
-
-</section>
-
-<!-- POWER BI DASHBOARDS -->
-
-<section id="dashboards">
-
-<h2>Power BI Dashboards</h2>
-
-<div class="dashboards">
-
-<div class="dashboard-card">
-
-<h3>Sales Performance Dashboard</h3>
-
-<p>Interactive visualization of revenue trends and KPIs.</p>
+<a href="https://github.com/" class="btn">GitHub</a>
 
 </div>
-
-<div class="dashboard-card">
-
-<h3>Customer Analytics Dashboard</h3>
-
-<p>Insights into customer behavior and retention metrics.</p>
-
-</div>
-
-<div class="dashboard-card">
-
-<h3>Operational Analytics</h3>
-
-<p>Dashboard monitoring productivity and operational data.</p>
 
 </div>
 
 </div>
 
 </section>
+
+<!-- POWER BI DASHBOARD -->
+
+<section id="dashboard">
+
+<h2>Interactive Power BI Dashboard</h2>
+
+<div class="dashboard-container">
+
+<iframe src="YOUR_POWER_BI_EMBED_LINK"></iframe>
+
+</div>
+
+</section>
+
+<!-- DATA VISUALIZATION -->
+
+<section id="analytics">
+
+<h2>Data Visualization Example</h2>
+
+<div class="chart-box">
+
+<canvas id="salesChart"></canvas>
+
+</div>
+
+</section>
+
+<script>
+
+const ctx=document.getElementById('salesChart');
+
+new Chart(ctx,{
+
+type:'bar',
+
+data:{
+labels:['Jan','Feb','Mar','Apr','May','Jun'],
+datasets:[{
+
+label:'Revenue',
+
+data:[12000,19000,15000,22000,18000,25000],
+
+backgroundColor:'#00ADB5'
+
+}]
+},
+
+options:{
+responsive:true
+}
+
+});
+
+</script>
 
 <!-- CONTACT -->
 
@@ -387,17 +390,13 @@ for business decision making.
 
 <p>LinkedIn: linkedin.com</p>
 
-<p>Open to remote Data Analyst and BI Analyst opportunities.</p>
-
 </section>
 
 <footer>
 
-<p>© 2026 Fomonyuy Tume | Data Analyst Portfolio</p>
+<p>© 2026 Fomonyuy Tume</p>
 
 </footer>
 
 </body>
-
 </html>
-
