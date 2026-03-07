@@ -1,323 +1,356 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Fomonyuy Tume | Data Analyst Portfolio</title>
+<title>Fomonyuy Gerard Tume | Remote Data Analyst & Full-Stack Developer</title>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<meta name="description" content="Remote Senior Data Analyst and Business Intelligence specialist with strong full-stack development skills." />
 
 <style>
 
-/* GENERAL */
+:root{
+--accent:#f39c12;
+--dark:rgba(0,0,0,0.85);
+--card:rgba(0,0,0,0.7);
+}
 
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial;
-scroll-behavior:smooth;
 }
 
 body{
-background:#f4f4f4;
+font-family:'Poppins',sans-serif;
+background:url('images/gerzy.jpg') center/cover fixed no-repeat;
+color:#fff;
+line-height:1.6;
+}
+
+/* HEADER */
+
+header{
+min-height:100vh;
+background:linear-gradient(to bottom,rgba(0,0,0,.7),rgba(0,0,0,.85));
 }
 
 /* NAVBAR */
 
-nav{
+.nav{
 position:fixed;
 top:0;
+left:0;
 width:100%;
-background:#111;
-padding:15px 8%;
+z-index:1000;
+
 display:flex;
 justify-content:space-between;
 align-items:center;
-z-index:1000;
+
+padding:15px 40px;
+background:rgba(0,0,0,.9);
 }
 
-nav h2{
-color:white;
+.nav strong{
+color:var(--accent);
+font-size:26px;
 }
 
-nav a{
-color:white;
+.nav a{
+color:#fff;
 text-decoration:none;
 margin-left:20px;
-font-weight:bold;
+font-weight:600;
+position:relative;
 }
 
-nav a:hover{
-color:#00ADB5;
+.nav a::after{
+content:'';
+position:absolute;
+left:0;
+bottom:-5px;
+width:100%;
+height:3px;
+background:var(--accent);
+transform:scaleX(0);
+transition:.3s;
 }
 
-/* HERO (RESTORED ORIGINAL STYLE) */
+.nav a:hover::after{
+transform:scaleX(1);
+}
+
+/* HERO */
 
 .hero{
 
-height:100vh;
+max-width:1100px;
+margin:0 auto;
+padding:140px 20px 60px;
 
-background:
-linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),
-url("gerzy.jpg");
-
-background-size:cover;
-background-position:center;
-
-display:flex;
-flex-direction:column;
-justify-content:center;
+display:grid;
+grid-template-columns:1fr 260px;
+gap:40px;
 align-items:center;
 
-text-align:center;
-color:white;
-
-padding-top:80px;
-
 }
-
-/* PROFILE PHOTO (ONLY SIZE ADJUSTED) */
-
-.profile-photo{
-
-width:160px;
-height:160px;
-
-border-radius:50%;
-border:5px solid white;
-
-object-fit:cover;
-
-margin-bottom:20px;
-
-box-shadow:0 5px 20px rgba(0,0,0,0.4);
-
-}
-
-/* HERO TEXT */
 
 .hero h1{
-font-size:48px;
-margin-bottom:10px;
+font-size:40px;
+color:var(--accent);
+}
+
+.hero h2{
+font-size:18px;
+font-weight:400;
+margin:10px 0 20px;
+color:#f1c40f;
 }
 
 .hero p{
-color:#ddd;
-margin-bottom:20px;
+max-width:600px;
 }
 
-/* BUTTONS */
+/* PROFILE IMAGE (SIZE ADJUSTED) */
 
-.btn{
-display:inline-block;
-padding:12px 25px;
-background:#00ADB5;
-color:white;
-text-decoration:none;
-border-radius:6px;
-margin:8px;
-font-weight:bold;
-transition:0.3s;
+.hero img{
+
+width:220px;
+height:220px;
+
+object-fit:cover;
+
+border-radius:50%;
+border:4px solid var(--accent);
+
+box-shadow:0 20px 40px rgba(0,0,0,.6);
+
+transition:.3s;
+
 }
 
-.btn:hover{
-background:#028f96;
-transform:translateY(-3px);
+.hero img:hover{
+transform:scale(1.05) rotate(3deg);
 }
 
 /* SECTIONS */
 
 section{
-padding:90px 8%;
+
+max-width:1000px;
+margin:120px auto;
+padding:80px 20px;
+
+background:var(--card);
+
+border-radius:12px;
+
+box-shadow:0 10px 30px rgba(0,0,0,.4);
+
 text-align:center;
+
 }
 
-section h2{
-font-size:34px;
-margin-bottom:40px;
+section:hover{
+transform:scale(1.02);
 }
 
-/* PROJECT CARDS */
+.section-title{
+font-size:28px;
+color:var(--accent);
+margin-bottom:30px;
+}
 
-.projects{
+/* GRID */
+
+.grid{
 
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 gap:25px;
 
 }
 
-.project-card{
+/* CARDS */
 
-background:white;
+.card{
+
+background:rgba(255,255,255,.15);
+padding:25px;
+
+border-radius:12px;
+
+transition:.3s;
+
+}
+
+.card:hover{
+transform:translateY(-6px);
+}
+
+/* SKILL TAG */
+
+.tag{
+
+display:inline-block;
+margin:6px;
+padding:6px 14px;
+
+background:rgba(243,156,18,.25);
+
+color:#fff;
+
+border-radius:20px;
+font-size:12px;
+
+}
+
+/* PROJECTS */
+
+.project ul{
+text-align:left;
+padding-left:18px;
+}
+
+/* BUTTON */
+
+.btn{
+
+display:inline-block;
+
+margin-top:15px;
+
+padding:10px 20px;
+
+background:var(--accent);
+
+color:#000;
+
+font-weight:700;
+
 border-radius:8px;
-overflow:hidden;
 
-box-shadow:0 4px 10px rgba(0,0,0,0.1);
-
-transition:transform 0.3s, box-shadow 0.3s;
+text-decoration:none;
 
 }
 
-.project-card:hover{
-
-transform:translateY(-10px);
-box-shadow:0 10px 20px rgba(0,0,0,0.2);
-
-}
-
-.project-card img{
-
-width:100%;
-height:170px;
-object-fit:cover;
-
-}
-
-.project-content{
-padding:20px;
-}
-
-/* DASHBOARDS */
-
-.dashboard-container{
-max-width:1000px;
-margin:auto;
-}
-
-iframe{
-width:100%;
-height:500px;
-border:none;
-border-radius:8px;
-}
-
-/* CHART */
-
-.chart-box{
-max-width:600px;
-margin:auto;
-}
-
-/* CONTACT */
-
-.contact{
-background:#111;
-color:white;
-}
+/* FOOTER */
 
 footer{
-background:black;
-color:white;
-padding:20px;
+background:#000;
+text-align:center;
+padding:25px;
+color:#aaa;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.hero{
+grid-template-columns:1fr;
 text-align:center;
 }
 
-</style>
+.hero img{
+margin:auto;
+}
 
+}
+
+</style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
+<header>
 
-<nav>
+<div class="nav">
 
-<h2>Tume</h2>
+<strong>Gerzy</strong>
 
 <div>
-
-<a href="#">Home</a>
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
 <a href="#projects">Projects</a>
-<a href="#dashboard">Dashboards</a>
-<a href="#analytics">Analytics</a>
 <a href="#contact">Contact</a>
-
 </div>
 
-</nav>
-
-<!-- HERO -->
+</div>
 
 <div class="hero">
 
-<img src="profile.jpg" class="profile-photo">
+<div>
 
-<h1>Fomonyuy Tume</h1>
+<h1>Fomonyuy Gerard Tume</h1>
 
-<p>Data Analyst | BI Analyst | Full Stack Developer</p>
+<h2>Senior Data Analyst • Business Intelligence • Full-Stack Developer (Remote)</h2>
 
-<a href="Fomonyuy_Tume_Data_Analyst_CV.pdf" class="btn">Download CV</a>
-
-<a href="https://github.com/gerzytume" class="btn">GitHub</a>
-
-<a href="https://linkedin.com" class="btn">LinkedIn</a>
+<p>
+I design and deliver end-to-end analytics solutions — from data ingestion and modeling to KPI dashboards and analytics-driven web applications.
+</p>
 
 </div>
 
-<!-- PROJECTS -->
+<img src="images/profile.jpg" alt="Fomonyuy Gerard Tume">
+
+</div>
+
+</header>
+
+<section id="about">
+
+<h3 class="section-title">About Me</h3>
+
+<p>
+I am a <strong>Senior Data Analyst</strong> with expertise in data analytics, business intelligence, and AI-assisted decision support, backed by strong <strong>full-stack development</strong> experience.
+</p>
+
+</section>
+
+<section id="skills">
+
+<h3 class="section-title">Skills</h3>
+
+<div class="grid">
+
+<div class="card">
+<h4>Data Analytics & BI</h4>
+<span class="tag">Data Analysis</span>
+<span class="tag">Business Intelligence</span>
+<span class="tag">KPI Design</span>
+<span class="tag">Forecasting</span>
+<span class="tag">Statistical Analysis</span>
+</div>
+
+<div class="card">
+<h4>Analytics Tools</h4>
+<span class="tag">Python</span>
+<span class="tag">SQL</span>
+<span class="tag">Power BI</span>
+<span class="tag">Excel</span>
+<span class="tag">Tableau</span>
+</div>
+
+</div>
+
+</section>
 
 <section id="projects">
 
-<h2>Featured Data Projects</h2>
+<h3 class="section-title">Projects</h3>
 
-<div class="projects">
+<div class="grid">
 
-<div class="project-card">
+<div class="card project">
 
-<img src="project1.jpg">
+<h4>AI-Powered Attendance Analytics Platform</h4>
 
-<div class="project-content">
+<p>Enterprise-grade analytics and automation platform.</p>
 
-<h3>Sales Analytics Dashboard</h3>
-
-<p>Power BI dashboard analyzing revenue trends.</p>
-
-<a href="#" class="btn">Case Study</a>
-
-<a href="https://github.com/gerzytume" class="btn">GitHub</a>
-
-</div>
-
-</div>
-
-<div class="project-card">
-
-<img src="project2.jpg">
-
-<div class="project-content">
-
-<h3>Customer Churn Prediction</h3>
-
-<p>Machine learning model predicting customer churn.</p>
-
-<a href="#" class="btn">Case Study</a>
-
-<a href="https://github.com/gerzytume" class="btn">GitHub</a>
-
-</div>
-
-</div>
-
-<div class="project-card">
-
-<img src="project3.jpg">
-
-<div class="project-content">
-
-<h3>Marketing Campaign Analysis</h3>
-
-<p>Campaign ROI and conversion analysis.</p>
-
-<a href="#" class="btn">Case Study</a>
-
-<a href="https://github.com/gerzytume" class="btn">GitHub</a>
-
-</div>
+<a class="btn" href="#">View Project</a>
 
 </div>
 
@@ -325,80 +358,19 @@ text-align:center;
 
 </section>
 
-<!-- POWER BI DASHBOARD -->
+<section id="contact">
 
-<section id="dashboard">
+<h3 class="section-title">Contact</h3>
 
-<h2>Interactive Power BI Dashboard</h2>
-
-<div class="dashboard-container">
-
-<iframe src=""></iframe>
-
-</div>
-
-</section>
-
-<!-- DATA VISUALIZATION -->
-
-<section id="analytics">
-
-<h2>Data Visualization Example</h2>
-
-<div class="chart-box">
-
-<canvas id="salesChart"></canvas>
-
-</div>
-
-</section>
-
-<script>
-
-const ctx=document.getElementById('salesChart');
-
-new Chart(ctx,{
-
-type:'bar',
-
-data:{
-labels:['Jan','Feb','Mar','Apr','May','Jun'],
-datasets:[{
-
-label:'Revenue',
-
-data:[12000,19000,15000,22000,18000,25000],
-
-backgroundColor:'#00ADB5'
-
-}]
-},
-
-options:{
-responsive:true
-}
-
-});
-
-</script>
-
-<!-- CONTACT -->
-
-<section id="contact" class="contact">
-
-<h2>Contact</h2>
-
-<p>Email: fomonyuytumi@gmail.com</p>
-
-<p>GitHub: github.com/gerzytume</p>
-
-<p>LinkedIn: linkedin.com</p>
+<p>
+📧 <strong>Email:</strong> fomonyuytumi@gmail.com
+</p>
 
 </section>
 
 <footer>
 
-<p>© 2026 Fomonyuy Tume</p>
+<p>© 2025 Fomonyuy Gerard Tume — Remote Data Analyst</p>
 
 </footer>
 
